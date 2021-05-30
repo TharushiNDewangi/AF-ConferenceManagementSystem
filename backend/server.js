@@ -16,11 +16,17 @@ const cart_route = require('./routes/cart');
 const initialdata_route = require('./routes/reviewer/initialData');
 const Address_route = require('./routes/address');
 
+const paper_route = require('./routes/papers');
+
 const PORT=process.env.PORT || 8065
 
 app.use(cors())
 app.use(express.json())
-app.use('/public',express.static(path.join(__dirname,'uploads')))  
+// app.use('/public',express.static(path.join(__dirname,'uploads'))) 
+app.use('/uploads',express.static('uploads'));
+// app.use(express.json());  //  useNewUrlParser: true, useFindAndModify: false
+app.use(express.urlencoded({extended:true}));
+
 
 const URL=process.env.MONGODB_URL;
 // const MongoClient = require('mongodb').MongoClient;
@@ -54,6 +60,7 @@ app.use('/api',product_route)
 app.use('/api',cart_route)
 app.use('/api',initialdata_route)
 app.use('/api',Address_route )
+app.use('/api',paper_route)
 
 
 
