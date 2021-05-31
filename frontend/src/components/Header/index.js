@@ -39,6 +39,23 @@ const Header = (props) => {
         <li className="nav-item">
           <NavLink to="/signup" className="nav-link">Signup</NavLink>
         </li>
+        {/* papers */}
+        <li className="nav-item">
+          <NavLink to="/add" className="nav-link">Create Items</NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink to="/papers" className="nav-link">Papers</NavLink>
+        </li>
+
+        {/* papers */}
+        {/* <li className="nav-item">
+        <a className="nav-link" href="/add">Create Items</a>
+        </li>
+        <li className="nav-item">
+        <a className="nav-link" href="/papers">Papers</a> */}
+        {/* <Link to = "/add" className ="nav-link">Create Items</Link> */}
+
+      {/* </li> */}
       </Nav>
     );
   }

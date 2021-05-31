@@ -11,6 +11,8 @@ import Products from './containers/Products';
 import Orders from './containers/Orders';
 import Category from './containers/Category';
 import { getInitialData } from './actions/initialData.action';
+import AddPaper from './components/ReaserchPaper/AddPaper';
+import PaperList from './components/ReaserchPaper/PaperList';
 
 function App() {
 
@@ -35,6 +37,8 @@ function App() {
          <PrivateRoute path = "/orders" exact component = {Orders}/>
          <Route path = "/signin" component ={ Signin }/>
          <Route path = "/signup" component ={ Signup }/>
+         <Route path= "/add" exact component ={AddPaper}/>
+        <Route path= "/papers" exact component ={PaperList}/>
        </Switch>
      
       
