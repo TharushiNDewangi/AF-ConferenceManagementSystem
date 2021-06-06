@@ -1,6 +1,7 @@
 const Catogory=require('../models/catogory')
 const router=require("express").Router();
 const jwt =require('jsonwebtoken');
+const expressAsyncHandler =require('express-async-handler');
 const slugify=require('slugify');
 const catogory = require('../models/catogory');
 
@@ -74,3 +75,45 @@ exports.getcategory=(req,res)=>
         }
     });
 }
+exports.approvecategory= (req,res)=>
+{
+    
+    console.log("dewww  :"+req.body.status);
+    //const{_id,status}=req.body;
+    //const updatedcat=[];
+
+    Catogory.findByIdAndUpdate(
+        req.params._id,
+        {status:req.body.status},
+        {new:true}
+    ).catch((err)=>{
+        console.log(err);
+    })
+    //updatedcat.push(updatecat);
+   // res.json(updatecat);
+    console.log("dewww  :"+req.body.status);
+    // expressAsyncHandler(async(req,res)=>{
+    //     console.log("dewww  :");
+    //     const cat=await Catogory.findById(req.params._id);
+    //     if(cat){
+    //         const newcat =  Catogory.findByIdAndUpdate(req.params._id,
+    //             req.body,
+    //             {
+    //                 new:true,
+    //                 runValidators:true,
+    //             });
+    //             res.status(200);
+    //             res.json(newcat);
+    //     }
+    //     else{
+    //         console.log("dewww  :");
+    //         res.status(400);
+    //         throw new Error('update failed')
+    //     }
+    // }
+        
+    //)
+    
+    
+}
+ 

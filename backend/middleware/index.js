@@ -41,3 +41,36 @@ exports.sellermiddleware = (req, res, next) => {
     next();
    
 }
+exports.adminmiddleware = (req, res, next) => {
+    console.log(req.body.name);
+    console.log(req.user.role);
+    //console.log(req.user.name);
+   if(req.user.role !=='reviewer')
+    {
+        return res.status(400).json({message:'reviewer access denaied'})
+    }
+    next();
+   
+}
+exports.reviewermiddleware = (req, res, next) => {
+    console.log(req.body.name);
+    console.log(req.user.role);
+    //console.log(req.user.name);
+   if(req.user.role !=='reviewer')
+    {
+        return res.status(400).json({message:'reviewer access denaied'})
+    }
+    next();
+   
+}
+exports.editormiddleware = (req, res, next) => {
+    console.log(req.body.name);
+    console.log(req.user.role);
+    //console.log(req.user.name);
+   if(req.user.role !=='reviewer')
+    {
+        return res.status(400).json({message:'reviewer access denaied'})
+    }
+    next();
+   
+}
