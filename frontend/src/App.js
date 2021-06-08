@@ -1,6 +1,12 @@
-import React, { useEffect } from 'react';
+
+import ReactDOM from 'react-dom';
 import { Route, Switch} from  'react-router-dom';
-import './App.css';
+import { Provider } from 'react-redux';
+import store from './store';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import './index.css';
+import * as serviceWorker from './serviceWorker';
 import Home from './containers/Home';
 import Signin from './containers/Signin';
 import Signup from './containers/Signup';
@@ -14,8 +20,8 @@ import { getInitialData } from './actions/initialData.action';
 import AddPaper from './components/ReaserchPaper/AddPaper';
 import PaperList from './components/ReaserchPaper/PaperList';
 
-function App() {
 
+function App()  {
   const dispatch = useDispatch();
   const auth = useSelector(state => state.auth)
 
@@ -46,4 +52,21 @@ function App() {
   );
 }
 
+//ReactDOM.render(<App />, document.getElementById('root'));
+window.store = store;
+//part12
+ReactDOM.render(
+   <Provider store = {store}>
+     <Router>
+    <React.StrictMode>
+    <App />
+   </React.StrictMode>
+     </Router>
+    </Provider>,
+  document.getElementById('root')
+);
+serviceWorker.unregister();
 export default App;
+
+//console.log("dd");
+
