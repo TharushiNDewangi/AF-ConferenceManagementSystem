@@ -17,6 +17,8 @@ import Products from './containers/Products';
 import Orders from './containers/Orders';
 import Category from './containers/Category';
 import { getInitialData } from './actions/initialData.action';
+import AddPaper from './components/ReaserchPaper/AddPaper';
+import PaperList from './components/ReaserchPaper/PaperList';
 
 
 function App()  {
@@ -30,6 +32,7 @@ function App()  {
     dispatch(getInitialData());
    
 },[]);
+<<<<<<< HEAD
   return(<div className="App">
     
   <Switch>
@@ -46,6 +49,26 @@ function App()  {
 </div>) 
    
   
+=======
+  //routes
+  return (
+    <div className="App">
+     
+       <Switch>
+         <PrivateRoute path = "/" exact component ={ Home }/>
+         <PrivateRoute path = "/category" exact component = {Category}/>
+         <PrivateRoute path = "/products" exact component = {Products}/>
+         <PrivateRoute path = "/orders" exact component = {Orders}/>
+         <Route path = "/signin" component ={ Signin }/>
+         <Route path = "/signup" component ={ Signup }/>
+         <Route path= "/add" exact component ={AddPaper}/>
+        <Route path= "/papers" exact component ={PaperList}/>
+       </Switch>
+     
+      
+    </div>
+  );
+>>>>>>> 5f9c81acf9d19e6ca1fced751c7858ba0728984b
 }
 
 //ReactDOM.render(<App />, document.getElementById('root'));
