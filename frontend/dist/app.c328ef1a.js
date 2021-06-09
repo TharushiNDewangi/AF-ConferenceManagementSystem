@@ -54642,7 +54642,7 @@ const login = user => {
     dispatch({
       type: _constants.authConstants.LOGIN_REQUEST
     });
-    const res = await _axios.default.post('/seller/signin', { ...user
+    const res = await _axios.default.post('/reviewer/signin', { ...user
     });
 
     if (res.status === 200) {
@@ -76873,7 +76873,7 @@ function App() {
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "App"
   }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_PrivateRoute.default, {
-    path: "/d",
+    path: "/",
     exact: true,
     component: _Home.default
   }), /*#__PURE__*/_react.default.createElement(_PrivateRoute.default, {
@@ -76936,7 +76936,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65273" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63184" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

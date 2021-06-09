@@ -9,7 +9,7 @@ export const login = (user) => {
 
         //database need part 
         dispatch({type : authConstants.LOGIN_REQUEST});
-         const res = await axios.post('/seller/signin',{
+         const res = await axios.post('/reviewer/signin',{
                 ...user
          });
 
