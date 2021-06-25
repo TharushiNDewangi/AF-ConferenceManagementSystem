@@ -26,6 +26,7 @@ function createCatogories(catogories,parentid=null)
                 slug:cate.slug,
                 parentid:cate.parentid,
                 status:cate.status,
+                
                 children:createCatogories(catogories,cate._id)
             }
         );

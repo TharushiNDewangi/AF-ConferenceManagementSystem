@@ -27,7 +27,7 @@ const paperschema=new schema(
         researchpaper:[
             { fil: {type: String}}
         ],
-        // createBy:{type:mongoose.Schema.Types.ObjectId, ref:'User',required:true },
+        //  createBy:{type:mongoose.Schema.Types.ObjectId, ref:'User',required:true },
         updatedAt:Date,
         
         },{ timestamps: true})
