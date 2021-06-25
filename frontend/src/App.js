@@ -1,91 +1,33 @@
+// import React from "react";
 
-import ReactDOM from 'react-dom';
-import { Route, Switch} from  'react-router-dom';
-import { Provider } from 'react-redux';
-import store from './store';
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import './index.css';
-import * as serviceWorker from './serviceWorker';
-import Home from './containers/Home';
-import Signin from './containers/Signin';
-import Signup from './containers/Signup';
-import PrivateRoute from './components/HOC/PrivateRoute';
-import { useDispatch, useSelector } from 'react-redux';
-import { isUserLoggedIn,getAllCategory} from './actions'
-import Products from './containers/Products';
-import Orders from './containers/Orders';
-import Category from './containers/Category';
-import { getInitialData } from './actions/initialData.action';
-import AddPaper from './components/ReaserchPaper/AddPaper';
-import PaperList from './components/ReaserchPaper/PaperList';
+// const App = () => {
+//   return <div>
+//     <h1>hello</h1>
+//   </div>;
+// };
 
+// export default App;
 
-function App()  {
-  const dispatch = useDispatch();
-  const auth = useSelector(state => state.auth)
+import './App.css';
+import Navbar from './components/Navbar';
+import React from 'react';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import Home from './components/Pages/Home'
 
-  useEffect(() => {
-    if(!auth.authenticate){
-     dispatch(isUserLoggedIn());
-    }
-    dispatch(getInitialData());
-   
-},[]);
-<<<<<<< HEAD
-  return(<div className="App">
-    
-  <Switch>
-  <PrivateRoute path = "/" exact component ={ Home }/>
-    <PrivateRoute path = "/category" exact component = {Category}/>
-    <PrivateRoute path = "/products" exact component = {Products}/>
-    <PrivateRoute path = "/orders" exact component = {Orders}/>
-    <Route path = "/signin" component ={ Signin }/>
-    <Route path = "/signup" component ={ Signup }/>
-  </Switch>
- 
-
- 
-</div>) 
-   
-  
-=======
-  //routes
+function App() {
   return (
-    <div className="App">
-     
-       <Switch>
-         <PrivateRoute path = "/" exact component ={ Home }/>
-         <PrivateRoute path = "/category" exact component = {Category}/>
-         <PrivateRoute path = "/products" exact component = {Products}/>
-         <PrivateRoute path = "/orders" exact component = {Orders}/>
-         <Route path = "/signin" component ={ Signin }/>
-         <Route path = "/signup" component ={ Signup }/>
-         <Route path= "/add" exact component ={AddPaper}/>
-        <Route path= "/papers" exact component ={PaperList}/>
-       </Switch>
-     
-      
-    </div>
+  <>
+  <Router>
+  <Navbar />
+    <Switch>
+      <Route path='/' exact component = {Home}/>
+    
+   
+     </Switch>
+    </Router>
+  </>
   );
->>>>>>> 5f9c81acf9d19e6ca1fced751c7858ba0728984b
 }
 
-//ReactDOM.render(<App />, document.getElementById('root'));
-window.store = store;
-//part12
-ReactDOM.render(
-   <Provider store = {store}>
-     <Router>
-    <React.StrictMode>
-    <App />
-   </React.StrictMode>
-     </Router>
-    </Provider>,
-  document.getElementById('root')
-);
-serviceWorker.unregister();
 export default App;
-
-//console.log("dd");
 
